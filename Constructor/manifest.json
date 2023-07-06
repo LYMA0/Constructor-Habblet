@@ -1,0 +1,26 @@
+{
+   "author": "Lymaao",
+   "content_scripts": [ {
+      "css": [ "styles.css" ],
+      "js": ["html.js", "functions.js", "contentScript.js"],
+      "matches": [ "*://*.habblet.city/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "A extensão Constructor adiciona novos recursos que aceleram a construção/decoração de quartos no Habblet",
+   "icons": {
+      "128": "assets/RM0-128x.png",
+      "16": "assets/RM0-128x.png",
+      "32": "assets/RM0-128x.png",
+      "48": "assets/RM0-128x.png"
+   },
+   "manifest_version": 3,
+   "name": "Constructor - Habblet",
+   "version": "0.0.2",
+   "web_accessible_resources": [ {
+      "matches": [ "*://*.habblet.city/*" ],
+      "resources": [ "assets/*" ]
+   }, {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "styles.css" ]
+   } ]
+}

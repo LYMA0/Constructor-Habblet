@@ -1,0 +1,18 @@
+.icon-menu-custom{
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    display: flex !important;
+}
+.icon-constructor{
+}
+.icon-enable{
+}
+.icon-icon-handitem{
+}
+.custon-constructor{
+    height: 286px;
+}
+.custon-constructor-button{
+    background-color: greenyellow;
+}
