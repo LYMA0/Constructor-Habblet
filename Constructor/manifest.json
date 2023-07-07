@@ -1,11 +1,13 @@
 {
    "author": "Lymaao",
-   "content_scripts": [ {
-      "css": [ "styles.css" ],
-      "js": ["html.js", "functions.js", "contentScript.js"],
-      "matches": [ "*://*.habblet.city/*" ],
-      "run_at": "document_end"
-   } ],
+   "content_scripts": [
+      {
+         "css": [ "styles.css" ],
+         "js": ["getuser.js", "enable.js", "handitem.js", "html.js", "functions.js", "contentScript.js"],
+         "matches": ["*://*.habblet.city/*"],
+         "run_at": "document_end"
+      }
+   ],
    "description": "A extensão Constructor adiciona novos recursos que aceleram a construção/decoração de quartos no Habblet",
    "icons": {
       "128": "assets/RM0-128x.png",
@@ -15,12 +17,19 @@
    },
    "manifest_version": 3,
    "name": "Constructor - Habblet",
-   "version": "0.0.2",
-   "web_accessible_resources": [ {
-      "matches": [ "*://*.habblet.city/*" ],
-      "resources": [ "assets/*" ]
-   }, {
-      "matches": [ "\u003Call_urls>" ],
-      "resources": [ "styles.css" ]
-   } ]
+   "version": "0.0.3",
+   "web_accessible_resources": [
+      {
+         "matches": [ "*://*.habblet.city/*" ],
+         "resources": [ "assets/*" ]
+      },
+      {
+         "matches": [ "\u003Call_urls>" ],
+         "resources": [ "styles.css" ]
+      }
+   ],
+   "permissions": [
+      "*://*.habblet.city/hotelv2/*",
+      "*://*.habblet.city/news/*"
+   ]
 }

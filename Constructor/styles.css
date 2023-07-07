@@ -13,6 +13,55 @@
 .custon-constructor{
     height: 286px;
 }
+.custon-enable{
+    width: 500px;
+}
 .custon-constructor-button{
     background-color: greenyellow;
+}
+.custom-previw{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.custom-previw-2-enable{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    margin: 5px;
+    width: 100px;
+}
+.custom-previw-2-handitem{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    margin: 5px;
+    width: 100px;
+}
+.avatar-user-previw {
+    width: 70px;
+    height: 128px;
+    background-position: 50% 50%;
+}
+.icon-link-sm{
+    width: 10px;
+    height: 10px;
+}
+.encurtador-button{
+    width: 13px;
+    height: 11px;
+}
+.fade-out {
+    animation: fadeOut 2s forwards;
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
