@@ -196,7 +196,7 @@ function createEnable() {
         }
     }
 
-    buttonsEnable = document.querySelectorAll(".custom-previw-2");
+    buttonsEnable = document.querySelectorAll(".custom-previw-2-enable");
     for (let i = 0; i < buttonsEnable.length; i++) {
         let getID = buttonsEnable[i].querySelector(".d-inline.text-black:nth-child(2)");
         const string = "enable";
@@ -288,7 +288,7 @@ function createHanditem() {
         avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&action=std,crr=${handitem.id}&crr=${handitem.id},drk=avatar%7D&direction=4&head_direction=4&img_format=png$crr=1")`;
     }
 
-    buttonsHanditem = document.querySelectorAll(".custom-previw-2");
+    buttonsHanditem = document.querySelectorAll(".custom-previw-2-handitem");
     for (let i = 0; i < buttonsHanditem.length; i++) {
         let getID = buttonsHanditem[i].querySelector(".d-inline.text-black:nth-child(2)");
         const string = "handitem";

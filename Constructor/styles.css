@@ -50,6 +50,18 @@
     height: 128px;
     background-position: 50% 50%;
 }
+.avatar-user-previw:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.custom-previw-2-handitem > .text-black{
+    text-align: center !important;
+}
+.custom-previw-2-enable > .text-black{
+    text-align: center !important;
+}
 .icon-link-sm{
     width: 10px;
     height: 10px;
