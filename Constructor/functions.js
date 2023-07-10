@@ -182,17 +182,14 @@ function createEnable() {
 
         const avatarElements = document.querySelectorAll(".avatar-enable");
         let avatarElement = avatarElements[i];
-        //avatarElement.style.backgroundImage = `url("https://avatar.habbletxd.com.br/?user=${nickname}&action=std,crr=&crr=,drk=&drk=&size=b&head_direction=2&direction=2&gesture=std&headonly=0&effect=${i}")`; outro metodo que pode ser utilizado porem não consegue aplicar em todos os avatares no personagem.
-        if (i <= 214) {
-            avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=png&effect=${i}")`;
-        } else if (i >= 215) {
-            let y = i;
-            y = y + 285;
-            if (y == 500 || y == 501) {
-                avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=gif&effect=${y}")`;
-            } else {
-                avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=png&effect=${y}")`;
-            }
+        if (enable.id == 193 || enable.id == 194 || enable.id == 195 || enable.id == 500 || enable.id == 501){
+            avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=gif&effect=${enable.id}")`;
+        }
+        /*else if (enable.id == 175 || enable.id == 176 || enable.id == 523 || enable.id == 524 || enable.id == 541 || enable.id == 542 || enable.id == 543 || enable.id == 544){
+
+        }*/
+        else{
+            avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=png&effect=${enable.id}&frame_num=3")`;
         }
     }
 
@@ -319,6 +316,62 @@ function createHanditem() {
     });
 }
 
+//
+//HISTORIC
+//
+
+function createHistoric(){
+    const windowPai = document.getElementById("draggable-windows-container");
+    const windowNew = document.createElement("div");
+
+    windowNew.classList.add("position-absolute", "draggable-window");
+
+    //let zIndex = document.querySelectorAll(".position-absolute.draggable-window");
+    const tam = 409
+    windowNew.setAttribute("style", `z-index: ${tam}; top: calc(50vh - 110px); left: calc(50vw - 137.5px); transform: translate(0px, 0px); visibility: visible;`);
+
+    windowNew.innerHTML = htmlHistoric;
+    windowPai.appendChild(windowNew);
+
+    // Tornar a div criada arrastável
+    dragElement(windowNew);
+
+    //Remover elemento
+    const closeButton = windowNew.querySelector(".nitro-card-header-close");
+    closeButton.addEventListener("click", function() {
+        windowNew.remove(); // Remover a janela quando o botão de fechar for clicado
+    });
+
+    const divPai = document.querySelector("#historic");
+    let ul = document.createElement("ul");
+    ul.classList.add("users-custom");
+    divPai.appendChild(ul);
+  
+    // Exibir os dados do histórico global na lista de histórico
+    historicData.forEach(data => {
+        let divAvatar = document.createElement("div");
+        divAvatar.classList.add("avatar-user-list");
+        divAvatar.style.backgroundImage = `${data.avatar}`;
+
+        let divName = document.createElement("div");
+        divName.textContent = `${data.name}`;
+
+        let link = document.createElement("a");
+        link.href = data.link;
+        link.textContent = `${data.link}`;
+
+        let li = document.createElement("li");
+        li.classList.add("user-list", "d-flex", "justify-content-around");
+        li.appendChild(divAvatar);
+        li.appendChild(divName);
+        li.appendChild(link);
+    
+        ul.appendChild(li);
+        let hr = document.createElement("hr");
+        ul.insertAdjacentElement("beforeend", hr);
+    });
+}
+
 function search(valor) {
     let input, filter, divs;
 
@@ -345,10 +398,6 @@ function search(valor) {
         }
     }
 }
-
-function createLinkButton() {
-
-};
 
 function makeDraggable(element) {
     let isDragging = false;
@@ -396,6 +445,129 @@ function TriggerEnter(element) {
     element.dispatchEvent(event);
 }
 
+function criarNovaDiv() {
+    // Verifica se a nova div já foi criada anteriormente
+    if (elementoFoiEncontrado) {
+        return; // Se a div já existe, sai da função
+    }
+
+    // Cria uma nova div
+    const imageSrc = chrome.runtime.getURL("assets/profile.png");
+    const novaDiv = document.createElement('div');
+    novaDiv.classList.add("encurtador-button", "cursor-pointer");
+    novaDiv.style.backgroundImage = `url("${imageSrc}")`;
+
+    // Obtém a referência para o elemento destino
+    const elementoDestino = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div");
+
+    // Insere a nova div no elemento destino
+    elementoDestino.appendChild(novaDiv);
+    novaDiv.addEventListener("click", function() {//AQUI   
+        //pegando o avatar do alvo
+        let getUserAvatar = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(2) > div.d-flex.gap-1 > div.d-flex.w-100.flex-column.gap-2.body-image > div");
+        let urlAvatar = getComputedStyle(getUserAvatar);
+        let userAvatar= urlAvatar.backgroundImage;
+
+        //pegando o nome do alvo
+        let getUserName = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
+        let userName = getUserName.textContent;
+
+
+        //pegando a mission do alvo
+        let getUserMission = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div");
+        let userMission = getUserMission.textContent;
+
+        //Realizando alterações na mission para coleta de link
+        shortener(userMission, userName, userAvatar);
+    });
+
+    // Atualiza as variáveis de controle
+    elementoFoiEncontrado = true;
+    conteudoAtual = elementoObservado.innerHTML;
+}
+
+function verificarElemento() {
+    // Verifica se o elemento existe
+    const elementoObservado = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
+
+    if (elementoObservado && !elementoFoiEncontrado) {
+        // O elemento foi encontrado pela primeira vez, cria a nova div
+        criarNovaDiv();
+    } else if (elementoObservado && elementoFoiEncontrado) {
+        // O elemento foi encontrado novamente, verifica se houve alteração no conteúdo
+        if (elementoObservado.innerHTML !== conteudoAtual) {
+            // O conteúdo foi alterado, chama a função para criar a nova div novamente
+            criarNovaDiv();
+        }
+    } else if (!elementoObservado) {
+        // O elemento não foi encontrado, redefine o estado para permitir que a nova div seja criada novamente
+        elementoFoiEncontrado = false;
+        conteudoAtual = '';
+    }
+}
+
+function criarNovaDivProfile() {
+    // Verifica se a nova div já foi criada anteriormente
+    if (elementoFoiEncontradoProfile) {
+        return; // Se a div já existe, sai da função
+    }
+
+    // Cria uma nova div
+    const imageSrc = chrome.runtime.getURL("assets/profile.png");
+    const novaDiv = document.createElement('div');
+    novaDiv.classList.add("encurtador-button", "cursor-pointer");
+    novaDiv.style.backgroundImage = `url("${imageSrc}")`;
+
+    // Obtém a referência para o elemento destino
+    const elementoDestino = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1)");
+
+    // Insere a nova div no elemento destino
+    elementoDestino.appendChild(novaDiv);
+
+    novaDiv.addEventListener("click", function() {
+
+        //pegando o avatar do alvo
+        let getUserAvatar = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div.d-flex.flex-column.gap-2.align-items-center.justify-content-center.avatar-container > div");
+        let urlAvatar = getComputedStyle(getUserAvatar);
+        let userAvatar= urlAvatar.backgroundImage;
+
+        //pegando o nome do alvo
+        let getUserName = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fw-bold");
+        let userName = getUserName.textContent;
+
+
+        //pegando a mission do alvo
+        let getUserMission = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fst-italic.small.text-break");
+        let userMission = getUserMission.textContent;
+
+        shortener(userMission, userName, userAvatar);
+    });
+
+    // Atualiza as variáveis de controle
+    elementoFoiEncontradoProfile = true;
+    conteudoAtualProfile = elementoObservadoProfile.innerHTML; 
+}
+
+function verificarElementoProfile() {
+    // Verifica se o elemento existe
+    const elementoObservadoProfile = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fw-bold");
+
+    if (elementoObservadoProfile && !elementoFoiEncontradoProfile) {
+        // O elemento foi encontrado pela primeira vez, cria a nova div
+        criarNovaDivProfile();
+    } else if (elementoObservadoProfile && elementoFoiEncontradoProfile) {
+        // O elemento foi encontrado novamente, verifica se houve alteração no conteúdo
+        if (elementoObservadoProfile.innerHTML !== conteudoAtualp) {
+            // O conteúdo foi alterado, chama a função para criar a nova div novamente
+            criarNovaDivProfile();
+        }
+    } else if (!elementoObservadoProfile) {
+        // O elemento não foi encontrado, redefine o estado para permitir que a nova div seja criada novamente
+        elementoFoiEncontradoProfile = false;
+        conteudoAtualProfile = '';
+    }
+}
+
 function dragElement(element) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
@@ -435,37 +607,42 @@ function dragElement(element) {
 }
 
 function extractLinksFromString(text) {
-    const urlRegex = /(?:^|\s)(\S+\.\S{2,}|www\.\S{2,})(?:\s|$)/gi;
-    const urls = text.match(urlRegex);
-
-    if (urls) {
-        // Remove espaços em branco extras dos URLs encontrados
-        const cleanedUrls = urls.map(url => url.trim());
-        return cleanedUrls;
+    const urlRegex = /(?:https?:\/\/)?(?:www\.)?(\S+\.\S{2,})/gi;
+    const matches = text.matchAll(urlRegex);
+    const urls = [];
+  
+    for (const match of matches) {
+      urls.push(match[1]);
     }
-
+  
+    if (urls.length > 0) {
+      const cleanedUrls = urls.map(url => url.trim());
+      return cleanedUrls;
+    }
+  
     return [];
-}
-
-
-function shortener() {
-    const userMission = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div")
-        .textContent;
-
-    const links = extractLinksFromString(userMission);
+  }
+  
+function shortener(getUserLink, userName, userAvatar) {
+    const links = extractLinksFromString(getUserLink);
     if (links.length > 0) {
-        // Abre cada link em uma nova aba com o protocolo "https://"
-        links.forEach(link => {
-            if (!link.startsWith("http://www.") && !link.startsWith("https://www.")) {
-                link = "https://" + link;
-            }
-            window.open(link, "_blank");
-        });
+      links.forEach(link => {
+        if (!link.startsWith("http://") && !link.startsWith("https://")) {
+          link = "https://" + link;
+        } else if (link.startsWith("www.")) {
+          link = "https://" + link;
+        }
+        let userLink = link;
+        const user = { avatar: userAvatar, name: userName, link: userLink };
+        historicData.push(user); // Adicionar os dados do usuário ao histórico global
+        window.open(link, "_blank");
+      });
     } else {
-        // Nenhum link encontrado
-        alertError();
+      alertError();
     }
-}
+  }
+  
+  
 
 function alertError(){
     const div = document.createElement("div");

@@ -88,3 +88,16 @@ const htmlHanditem = `
     </div>
 </div>
 `;
+let historicData = [];
+const htmlHistoric = `
+<div class="d-flex overflow-hidden position-relative flex-column nitro-card theme-primary-slim custon-enable" style="width: 500px; height: 500px;">
+    <div class="d-flex position-relative flex-column gap-2 align-items-center justify-content-center drag-handler container-fluid nitro-card-header">
+      <div class="d-flex w-100 align-items-center justify-content-center">
+        <span class="nitro-card-header-text">Historico</span>
+        <div class="position-absolute end-0 nitro-card-header-close"></div>
+      </div>
+    </div>
+    <div id="historic" class="d-flex overflow-auto flex-column gap-2 justify-content-between container-fluid content-area custon-historic">
+    </div>
+</div>
+`;

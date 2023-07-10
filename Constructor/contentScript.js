@@ -83,67 +83,16 @@ waitForElm("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-i
         divHistorico.appendChild(createdHistorico);
     });
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Toda essa area fechada é spy profile rever para aplicar funções no arquivo functions.js corretamente posteriormente
-
 
 // Variável de controle
 let elementoFoiEncontrado = false;
 let conteudoAtual = '';
-
-// Função para criar a nova div
-function criarNovaDiv() {
-    // Verifica se a nova div já foi criada anteriormente
-    if (elementoFoiEncontrado) {
-        return; // Se a div já existe, sai da função
-    }
-
-    // Cria uma nova div
-    const imageSrc = chrome.runtime.getURL("assets/profile.png");
-    const novaDiv = document.createElement('div');
-    novaDiv.classList.add("encurtador-button", "cursor-pointer");
-    novaDiv.style.backgroundImage = `url("${imageSrc}")`;
-
-    // Obtém a referência para o elemento destino
-    const elementoDestino = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div");
-
-    // Insere a nova div no elemento destino
-    elementoDestino.appendChild(novaDiv);
-
-    novaDiv.addEventListener("click", function() {
-        shortener();
-    });
-
-    // Atualiza as variáveis de controle
-    elementoFoiEncontrado = true;
-    conteudoAtual = elementoObservado.innerHTML;
-}
-
-// Função para verificar periodicamente a existência do elemento e alterações em seu conteúdo
-function verificarElemento() {
-    // Verifica se o elemento existe
-    const elementoObservado = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
-
-    if (elementoObservado && !elementoFoiEncontrado) {
-        // O elemento foi encontrado pela primeira vez, cria a nova div
-        criarNovaDiv();
-    } else if (elementoObservado && elementoFoiEncontrado) {
-        // O elemento foi encontrado novamente, verifica se houve alteração no conteúdo
-        if (elementoObservado.innerHTML !== conteudoAtual) {
-            // O conteúdo foi alterado, chama a função para criar a nova div novamente
-            criarNovaDiv();
-        }
-    } else if (!elementoObservado) {
-        // O elemento não foi encontrado, redefine o estado para permitir que a nova div seja criada novamente
-        elementoFoiEncontrado = false;
-        conteudoAtual = '';
-    }
-}
+let elementoFoiEncontradoProfile = false;
+let conteudoAtualProfile = '';
 
 // Chama a função de verificação periodicamente a cada 1 segundo (1000 milissegundos)
 setInterval(verificarElemento, 1000);
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------
+setInterval(verificarElementoProfile, 1000);
 
 //Faz com que só possa ser criado uma janela de cada botão
 let activeWindow = null;
@@ -188,6 +137,6 @@ waitForElm(".icon-menu-custom.icon-historico")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-historico");
         button.addEventListener("click", function() {
-            alert("Opá, essa are-a está em desenvolvimento. Verifique se o Constructor está atualizado corretamente");
+            createHistoric();
         });
     });

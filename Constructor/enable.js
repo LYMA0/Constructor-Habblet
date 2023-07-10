@@ -511,8 +511,8 @@ const enables = [
         id: 101,
     },
     {
-        status: 'Free',
-        nome: 'Moscas',
+        status: 'STAFF',
+        nome: 'STAFF',
         id: 102,
     },
     {
@@ -891,8 +891,8 @@ const enables = [
         id: 177,
     },
     {
-        status: 'Free',
-        nome: 'Moscas',
+        status: 'STAFF',
+        nome: 'Embaixador',
         id: 178,
     },
     {
@@ -936,8 +936,8 @@ const enables = [
         id: 186,
     },
     {
-        status: 'Free',
-        nome: 'Moscas',
+        status: 'VIP',
+        nome: 'VIP',
         id: 187,
     },
     {
@@ -1376,7 +1376,7 @@ const enables = [
         id: 559,
     },
     {
-        status: 'ADM',
+        status: 'STAFF',
         nome: 'Moderação',
         id: 560,
     },
@@ -1447,47 +1447,47 @@ const enables = [
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 😱',
         id: 574,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 😳',
         id: 575,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 😈',
         id: 576,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 😡',
         id: 577,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 👽',
         id: 578,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 👻',
         id: 579,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 💩',
         id: 580,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 💘',
         id: 581,
     },
     {
         status: 'Free',
-        nome: 'Emoji ',
+        nome: 'Emoji 🥺',
         id: 582,
     },
     {
@@ -1851,7 +1851,7 @@ const enables = [
         id: 654,
     },
     {
-        status: 'ADM',
+        status: 'STAFF',
         nome: 'Modo Eremita dos Seis Caminhos',
         id: 655,
     },
@@ -1864,6 +1864,26 @@ const enables = [
         status: 'Free',
         nome: 'Cabelo flamejante',
         id: 657,
+    },
+    {
+        status: 'Free',
+        nome: 'Moeda Escura',
+        id: 658,
+    },
+    {
+        status: 'Free',
+        nome: 'Teleporter',
+        id: 659,
+    },
+    {
+        status: 'Free',
+        nome: 'Invisível',
+        id: 660,
+    },
+    {
+        status: 'Free',
+        nome: 'Gato',
+        id: 661,
     },
     {
         status: 'VIP',
