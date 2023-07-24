@@ -336,10 +336,15 @@ function createHistoric(){
     // Tornar a div criada arrastável
     dragElement(windowNew);
 
+    windowOpenedHistoric = true;
+    windowElementHistoric = windowNew;
+
     //Remover elemento
     const closeButton = windowNew.querySelector(".nitro-card-header-close");
     closeButton.addEventListener("click", function() {
         windowNew.remove(); // Remover a janela quando o botão de fechar for clicado
+        windowOpenedHistoric = false;
+        windowElementHistoric = null;
     });
 
     const divPai = document.querySelector("#historic");

@@ -96,12 +96,19 @@ setInterval(verificarElementoProfile, 1000);
 
 //Faz com que só possa ser criado uma janela de cada botão
 let activeWindow = null;
+
 let windowOpened = false;
 let windowElement = null;
+
 let windowOpenedEnable = false;
 let windowElementEnable = null;
+
 let windowOpenedHanditem = false;
 let windowElementHanditem = null;
+
+let windowOpenedHistoric = false;
+let windowElementHistoric = null;
+
 
 waitForElm(".icon-menu-custom.icon-constructor")
     .then(element => {
@@ -137,6 +144,8 @@ waitForElm(".icon-menu-custom.icon-historico")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-historico");
         button.addEventListener("click", function() {
-            createHistoric();
+            if (!windowOpenedHistoric || !windowElementHistoric) {
+                createHistoric();
+            }
         });
     });
