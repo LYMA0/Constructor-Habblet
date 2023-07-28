@@ -110,6 +110,10 @@ let windowOpenedHistoric = false;
 let windowElementHistoric = null;
 
 
+let scrollPositionEnable = 0;
+let scrollPositionHanditem = 0;
+
+
 waitForElm(".icon-menu-custom.icon-constructor")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-constructor");

@@ -140,7 +140,6 @@ function createEnable() {
     windowNew.setAttribute("style", `z-index: ${tam}; top: calc(50vh - 110px); left: calc(50vw - 137.5px); transform: translate(0px, 0px); visibility: visible;`);
 
 
-
     windowNew.innerHTML = htmlEnable;
     windowPai.appendChild(windowNew);
 
@@ -208,11 +207,13 @@ function createEnable() {
     // Tornar a div criada arrastável
     dragElement(windowNew);
 
+    document.getElementById("enables").scrollTop = scrollPositionEnable;
 
     // Adicionar evento de clique ao elemento de fechar a janela
     const closeButton = windowNew.querySelector(".nitro-card-header-close");
     closeButton.addEventListener("click", function() {
-        windowNew.remove(); // Remover a janela quando o botão de fechar for clicado
+        scrollPositionEnable = document.getElementById("enables").scrollTop;
+        windowNew.remove();
         windowOpenedEnable = false;
         windowElementEnable = null;
     });
@@ -300,11 +301,13 @@ function createHanditem() {
     // Tornar a div criada arrastável
     dragElement(windowNew);
 
+    document.getElementById("handitems").scrollTop = scrollPositionHanditem;
 
     // Adicionar evento de clique ao elemento de fechar a janela
     const closeButton = windowNew.querySelector(".nitro-card-header-close");
     closeButton.addEventListener("click", function() {
-        windowNew.remove(); // Remover a janela quando o botão de fechar for clicado
+        scrollPositionHanditem = document.getElementById("handitems").scrollTop;
+        windowNew.remove();
         windowOpenedHanditem = false;
         windowElementHanditem = null;
     });
@@ -359,50 +362,74 @@ function createHistoric(){
         divAvatar.style.backgroundImage = `${data.avatar}`;
 
         let divName = document.createElement("div");
+        divName.classList.add("name-user-list");
         divName.textContent = `${data.name}`;
 
         let link = document.createElement("a");
+        link.classList.add("link-user-list");
         link.href = data.link;
         link.textContent = `${data.link}`;
 
         let li = document.createElement("li");
-        li.classList.add("user-list", "d-flex", "justify-content-around");
+        li.classList.add("user-list", "justify-content-around");
         li.appendChild(divAvatar);
         li.appendChild(divName);
         li.appendChild(link);
     
         ul.appendChild(li);
-        let hr = document.createElement("hr");
-        ul.insertAdjacentElement("beforeend", hr);
+        /*let hr = document.createElement("hr");
+        ul.insertAdjacentElement("beforeend", hr);*/
+    });
+
+    const input = document.getElementById("search-input-historic");
+    const type = input.id;
+    input.addEventListener("input", function() {
+        search(type);
     });
 }
 
 function search(valor) {
     let input, filter, divs;
 
-    if(valor == "search-input-enable"){
+    if (valor == "search-input-enable") {
         input = document.getElementById("search-input-enable");
         filter = input.value.toLowerCase();
         divs = document.getElementsByClassName("custom-previw-2-enable");
-    }
-    else if(valor == "search-input-handitem"){
+    } else if (valor == "search-input-handitem") {
         input = document.getElementById("search-input-handitem");
         filter = input.value.toLowerCase();
         divs = document.getElementsByClassName("custom-previw-2-handitem");
+    } else if (valor == "search-input-historic") {
+        input = document.getElementById("search-input-historic");
+        filter = input.value.toLowerCase();
+        divs = document.getElementsByClassName("user-list");
     }
 
     for (let i = 0; i < divs.length; i++) {
         let div = divs[i];
-        let children = div.getElementsByClassName("d-inline text-black");
-        let nome = children[0].textContent.toLowerCase();
 
-        if (nome.includes(filter)) {
-            div.style.display = "flex";
-        } else {
-            div.style.display = "none";
+        if (valor == "search-input-handitem" || valor == "search-input-enable") {
+            let children = div.getElementsByClassName("d-inline text-black");
+            let nome = children[0].textContent.toLowerCase();
+
+            if (nome.includes(filter)) {
+                div.style.display = "flex";
+            } else {
+                div.style.display = "none";
+            }
+        } else if (valor == "search-input-historic") {
+            let children = div.getElementsByClassName("name-user-list");
+            let nome = children[0].textContent.toLowerCase();
+            
+            if (nome.includes(filter)) {
+                div.style.display = "flex";
+            } else {
+                div.style.display = "none";
+            }
         }
     }
 }
+
 
 function makeDraggable(element) {
     let isDragging = false;

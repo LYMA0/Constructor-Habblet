@@ -97,6 +97,7 @@ const htmlHistoric = `
         <div class="position-absolute end-0 nitro-card-header-close"></div>
       </div>
     </div>
+    <div><input id="search-input-historic" type="text" class="form-control form-control-sm" placeholder="Procurar" value=""></div>
     <div id="historic" class="d-flex overflow-auto flex-column gap-2 justify-content-between container-fluid content-area custon-historic">
     </div>
 </div>

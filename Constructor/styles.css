@@ -87,9 +87,22 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+    border-top: 2px solid rgba(0, 0, 0, 0.300);
+}
+.user-list:last-child{
+    border-top: none;
 }
 .users-custom{
     padding: 0px !important;
     display: flex;
     flex-direction: column-reverse !important;
+}
+.name-user-list{
+    display: flex;
+}
+.link-user-list{
+    color: black;
+}
+.link-user-list:hover{
+    color: rgb(106, 106, 244);
 }
