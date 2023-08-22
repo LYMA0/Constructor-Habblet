@@ -1,5 +1,9 @@
 # Constructor-Habblet
 
+<div>
+  <img src="https://i.imgur.com/RAOwtgF.png">
+</div>
+
 Bem-vindo ao repositório da extensão "Habblet Constructor"! Esta é uma iniciativa pessoal que visa explorar e aprender a programação em JavaScript, além de compreender o desenvolvimento de extensões para a web. É importante ressaltar que este projeto foi concebido exclusivamente com fins educativos, com o intuito de aprimorar minhas habilidades de desenvolvimento e compreender melhor as tecnologias subjacentes à criação de extensões para jogos online.
 
 # Recursos Principais:
