@@ -8,15 +8,35 @@ Bem-vindo ao repositório da extensão "Habblet Constructor"! Esta é uma inicia
 
 # Recursos Principais:
 
+<div align="center">
+  <img src="https://i.imgur.com/mpEfvCD.png">
+</div>
+
 Constructor Simplificado: A extensão Habblet Constructor apresenta uma função "Constructor" que simplifica e agiliza o uso dos comandos existentes no jogo. Isso inclui comandos como :up, :state, :spin e :tile, que são frequentemente utilizados na interação com o ambiente virtual do jogo.
+
+<div align="center">
+  <img src="https://i.imgur.com/6444em7.png">
+</div>
 
 Comandos :enable Instantâneos: Um botão especial dentro do jogo abre uma aba com uma lista de todos os comandos :enable disponíveis. Ao clicar em um desses comandos, ele é executado instantaneamente, eliminando a necessidade de digitação manual no chat.
 
+<div align="center">
+  <img src="https://i.imgur.com/JLu4FN7.png">
+</div>
+
 Comandos :handitem Simplificados: Similar à funcionalidade anterior, a extensão também disponibiliza um botão que exibe todos os comandos :handitem do jogo. Clicar em um desses comandos permite a sua execução direta, proporcionando uma experiência mais fluida.
+
+<div align="center">
+  <img src="https://i.imgur.com/wrvCf6h.png">
+</div>
 
 Acesso Rápido a Hyperlinks em Perfis: Ao acessar o perfil de outros jogadores, um botão adicional é disponibilizado. Ele permite a abertura instantânea de hyperlinks associados a esse jogador, caso estejam disponíveis. Isso simplifica a navegação entre conteúdos relacionados.
 
 Histórico de Hyperlinks Abertos: A extensão também apresenta um botão que, quando clicado, exibe um histórico dos hyperlinks abertos pelo usuário a partir dos perfis de outros jogadores. Essa funcionalidade facilita o acesso a conteúdos relevantes que foram previamente explorados.
+
+<div align="center">
+  <img src="https://i.imgur.com/DYYSZuH.png">
+</div>
 
 # Aviso Legal:
 
@@ -27,3 +47,5 @@ Este projeto é resultado de um esforço de aprendizado e não tem qualquer obje
 O projeto Habblet Constructor não está associado de forma oficial ao jogo Habblet, nem é endossado por seus desenvolvedores. Trata-se de uma criação independente com o propósito de aprendizado.
 
 Aproveite o código, experimente as funcionalidades e explore o mundo do desenvolvimento de extensões web! Se tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato por meio das ferramentas de comunicação disponíveis no repositório.
+
+A extensão está na Web Store caso queira utilizala: <a href="https://chrome.google.com/webstore/detail/constructor-habblet/hgnogkeeiadclfeogbkjnjphpohocjkb?hl">Constructor!</a>
