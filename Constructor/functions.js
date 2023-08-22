@@ -181,16 +181,14 @@ function createEnable() {
 
         const avatarElements = document.querySelectorAll(".avatar-enable");
         let avatarElement = avatarElements[i];
-        if (enable.id == 193 || enable.id == 194 || enable.id == 195 || enable.id == 500 || enable.id == 501){
+        if (enable.id == 193 || enable.id == 194 || enable.id == 195 || enable.id == 500 || enable.id == 501) {
             avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=gif&effect=${enable.id}")`;
         }
-        /*else if (enable.id == 175 || enable.id == 176 || enable.id == 523 || enable.id == 524 || enable.id == 541 || enable.id == 542 || enable.id == 543 || enable.id == 544){
-
-        }*/
-        else{
-            avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=png&effect=${enable.id}&frame_num=3")`;
+        else {
+            avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&direction=4&head_direction=4&img_format=png&effect=${enable.id}")`;
         }
     }
+
 
     buttonsEnable = document.querySelectorAll(".custom-previw-2-enable");
     for (let i = 0; i < buttonsEnable.length; i++) {
@@ -207,12 +205,14 @@ function createEnable() {
     // Tornar a div criada arrastável
     dragElement(windowNew);
 
-    document.getElementById("enables").scrollTop = scrollPositionEnable;
+    document.getElementById("enables")
+        .scrollTop = scrollPositionEnable;
 
     // Adicionar evento de clique ao elemento de fechar a janela
     const closeButton = windowNew.querySelector(".nitro-card-header-close");
     closeButton.addEventListener("click", function() {
-        scrollPositionEnable = document.getElementById("enables").scrollTop;
+        scrollPositionEnable = document.getElementById("enables")
+            .scrollTop;
         windowNew.remove();
         windowOpenedEnable = false;
         windowElementEnable = null;
@@ -282,7 +282,7 @@ function createHanditem() {
 
         const avatarElements = document.querySelectorAll(".avatar-handitem");
         let avatarElement = avatarElements[i];
-        //avatarElement.style.backgroundImage = `url("")`; outro metodo que pode ser utilizado porem não consegue aplicar em todos os avatares no personagem.
+        //avatarElement.style.backgroundImage = `url("https://imager.radiohabblet.com.br/?user=${nickname}&action=std,crr=${handitem.id}&gesture=std&direction=4&head_direction=4&headonly=false&size=b&img_format=&dance=&effect=&frame_num=30")`;
         avatarElement.style.backgroundImage = `url("https://imager.blet.in/habblet-imaging/avatarimage?figure=${avatar}&action=std,crr=${handitem.id}&crr=${handitem.id},drk=avatar%7D&direction=4&head_direction=4&img_format=png$crr=1")`;
     }
 
@@ -301,12 +301,14 @@ function createHanditem() {
     // Tornar a div criada arrastável
     dragElement(windowNew);
 
-    document.getElementById("handitems").scrollTop = scrollPositionHanditem;
+    document.getElementById("handitems")
+        .scrollTop = scrollPositionHanditem;
 
     // Adicionar evento de clique ao elemento de fechar a janela
     const closeButton = windowNew.querySelector(".nitro-card-header-close");
     closeButton.addEventListener("click", function() {
-        scrollPositionHanditem = document.getElementById("handitems").scrollTop;
+        scrollPositionHanditem = document.getElementById("handitems")
+            .scrollTop;
         windowNew.remove();
         windowOpenedHanditem = false;
         windowElementHanditem = null;
@@ -323,7 +325,7 @@ function createHanditem() {
 //HISTORIC
 //
 
-function createHistoric(){
+function createHistoric() {
     const windowPai = document.getElementById("draggable-windows-container");
     const windowNew = document.createElement("div");
 
@@ -354,7 +356,7 @@ function createHistoric(){
     let ul = document.createElement("ul");
     ul.classList.add("users-custom");
     divPai.appendChild(ul);
-  
+
     // Exibir os dados do histórico global na lista de histórico
     historicData.forEach(data => {
         let divAvatar = document.createElement("div");
@@ -375,7 +377,7 @@ function createHistoric(){
         li.appendChild(divAvatar);
         li.appendChild(divName);
         li.appendChild(link);
-    
+
         ul.appendChild(li);
         /*let hr = document.createElement("hr");
         ul.insertAdjacentElement("beforeend", hr);*/
@@ -420,7 +422,7 @@ function search(valor) {
         } else if (valor == "search-input-historic") {
             let children = div.getElementsByClassName("name-user-list");
             let nome = children[0].textContent.toLowerCase();
-            
+
             if (nome.includes(filter)) {
                 div.style.display = "flex";
             } else {
@@ -477,131 +479,11 @@ function TriggerEnter(element) {
     element.dispatchEvent(event);
 }
 
-function criarNovaDiv() {
-    // Verifica se a nova div já foi criada anteriormente
-    if (elementoFoiEncontrado) {
-        return; // Se a div já existe, sai da função
-    }
-
-    // Cria uma nova div
-    const imageSrc = chrome.runtime.getURL("assets/profile.png");
-    const novaDiv = document.createElement('div');
-    novaDiv.classList.add("encurtador-button", "cursor-pointer");
-    novaDiv.style.backgroundImage = `url("${imageSrc}")`;
-
-    // Obtém a referência para o elemento destino
-    const elementoDestino = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div");
-
-    // Insere a nova div no elemento destino
-    elementoDestino.appendChild(novaDiv);
-    novaDiv.addEventListener("click", function() {//AQUI   
-        //pegando o avatar do alvo
-        let getUserAvatar = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(2) > div.d-flex.gap-1 > div.d-flex.w-100.flex-column.gap-2.body-image > div");
-        let urlAvatar = getComputedStyle(getUserAvatar);
-        let userAvatar= urlAvatar.backgroundImage;
-
-        //pegando o nome do alvo
-        let getUserName = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
-        let userName = getUserName.textContent;
-
-
-        //pegando a mission do alvo
-        let getUserMission = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div");
-        let userMission = getUserMission.textContent;
-
-        //Realizando alterações na mission para coleta de link
-        shortener(userMission, userName, userAvatar);
-    });
-
-    // Atualiza as variáveis de controle
-    elementoFoiEncontrado = true;
-    conteudoAtual = elementoObservado.innerHTML;
-}
-
-function verificarElemento() {
-    // Verifica se o elemento existe
-    const elementoObservado = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
-
-    if (elementoObservado && !elementoFoiEncontrado) {
-        // O elemento foi encontrado pela primeira vez, cria a nova div
-        criarNovaDiv();
-    } else if (elementoObservado && elementoFoiEncontrado) {
-        // O elemento foi encontrado novamente, verifica se houve alteração no conteúdo
-        if (elementoObservado.innerHTML !== conteudoAtual) {
-            // O conteúdo foi alterado, chama a função para criar a nova div novamente
-            criarNovaDiv();
-        }
-    } else if (!elementoObservado) {
-        // O elemento não foi encontrado, redefine o estado para permitir que a nova div seja criada novamente
-        elementoFoiEncontrado = false;
-        conteudoAtual = '';
-    }
-}
-
-function criarNovaDivProfile() {
-    // Verifica se a nova div já foi criada anteriormente
-    if (elementoFoiEncontradoProfile) {
-        return; // Se a div já existe, sai da função
-    }
-
-    // Cria uma nova div
-    const imageSrc = chrome.runtime.getURL("assets/profile.png");
-    const novaDiv = document.createElement('div');
-    novaDiv.classList.add("encurtador-button", "cursor-pointer");
-    novaDiv.style.backgroundImage = `url("${imageSrc}")`;
-
-    // Obtém a referência para o elemento destino
-    const elementoDestino = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1)");
-
-    // Insere a nova div no elemento destino
-    elementoDestino.appendChild(novaDiv);
-
-    novaDiv.addEventListener("click", function() {
-
-        //pegando o avatar do alvo
-        let getUserAvatar = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div.d-flex.flex-column.gap-2.align-items-center.justify-content-center.avatar-container > div");
-        let urlAvatar = getComputedStyle(getUserAvatar);
-        let userAvatar= urlAvatar.backgroundImage;
-
-        //pegando o nome do alvo
-        let getUserName = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fw-bold");
-        let userName = getUserName.textContent;
-
-
-        //pegando a mission do alvo
-        let getUserMission = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fst-italic.small.text-break");
-        let userMission = getUserMission.textContent;
-
-        shortener(userMission, userName, userAvatar);
-    });
-
-    // Atualiza as variáveis de controle
-    elementoFoiEncontradoProfile = true;
-    conteudoAtualProfile = elementoObservadoProfile.innerHTML; 
-}
-
-function verificarElementoProfile() {
-    // Verifica se o elemento existe
-    const elementoObservadoProfile = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fw-bold");
-
-    if (elementoObservadoProfile && !elementoFoiEncontradoProfile) {
-        // O elemento foi encontrado pela primeira vez, cria a nova div
-        criarNovaDivProfile();
-    } else if (elementoObservadoProfile && elementoFoiEncontradoProfile) {
-        // O elemento foi encontrado novamente, verifica se houve alteração no conteúdo
-        if (elementoObservadoProfile.innerHTML !== conteudoAtualp) {
-            // O conteúdo foi alterado, chama a função para criar a nova div novamente
-            criarNovaDivProfile();
-        }
-    } else if (!elementoObservadoProfile) {
-        // O elemento não foi encontrado, redefine o estado para permitir que a nova div seja criada novamente
-        elementoFoiEncontradoProfile = false;
-        conteudoAtualProfile = '';
-    }
-}
-
 function dragElement(element) {
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
 
     // Adicione um manipulador de eventos de mouse para o cabeçalho da div
     const header = element.querySelector("#draggable-windows-container > div > div > div.d-flex.position-relative.flex-column.gap-2.align-items-center.justify-content-center.drag-handler.container-fluid.nitro-card-header");
@@ -642,41 +524,45 @@ function extractLinksFromString(text) {
     const urlRegex = /(?:https?:\/\/)?(?:www\.)?(\S+\.\S{2,})/gi;
     const matches = text.matchAll(urlRegex);
     const urls = [];
-  
+
     for (const match of matches) {
-      urls.push(match[1]);
+        urls.push(match[1]);
     }
-  
+
     if (urls.length > 0) {
-      const cleanedUrls = urls.map(url => url.trim());
-      return cleanedUrls;
+        const cleanedUrls = urls.map(url => url.trim());
+        return cleanedUrls;
     }
-  
+
     return [];
-  }
-  
+}
+
 function shortener(getUserLink, userName, userAvatar) {
     const links = extractLinksFromString(getUserLink);
     if (links.length > 0) {
-      links.forEach(link => {
-        if (!link.startsWith("http://") && !link.startsWith("https://")) {
-          link = "https://" + link;
-        } else if (link.startsWith("www.")) {
-          link = "https://" + link;
-        }
-        let userLink = link;
-        const user = { avatar: userAvatar, name: userName, link: userLink };
-        historicData.push(user); // Adicionar os dados do usuário ao histórico global
-        window.open(link, "_blank");
-      });
+        links.forEach(link => {
+            if (!link.startsWith("http://") && !link.startsWith("https://")) {
+                link = "https://" + link;
+            } else if (link.startsWith("www.")) {
+                link = "https://" + link;
+            }
+            let userLink = link;
+            const user = {
+                avatar: userAvatar,
+                name: userName,
+                link: userLink
+            };
+            historicData.push(user); // Adicionar os dados do usuário ao histórico global
+            window.open(link, "_blank");
+        });
     } else {
-      alertError();
+        alertError();
     }
-  }
-  
-  
+}
 
-function alertError(){
+
+
+function alertError() {
     const div = document.createElement("div");
     div.innerHTML = `
         <div class="animate__animated" style="">
@@ -700,4 +586,113 @@ function alertError(){
         }, 2000); // 2 segundos de duração da animação de desaparecimento
     }, 3000); // 3 segundos de espera antes de começar a desaparecer
 
+}
+
+//
+
+
+
+function createProfileButton(type){
+    if(type == 1){//Target
+        const description = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div");
+        const image = chrome.runtime.getURL("assets/profile.png");
+        const div = document.createElement("div");
+        div.classList.add("encurtador-button", "cursor-pointer");
+        div.style.backgroundImage = `url("${image}")`;
+        description.appendChild(div);
+        div.addEventListener("click", function(){
+            let getUserAvatar = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(2) > div.d-flex.gap-1 > div.d-flex.w-100.flex-column.gap-2.body-image > div");
+            let urlAvatar = getComputedStyle(getUserAvatar);
+            let userAvatar= urlAvatar.backgroundImage;
+    
+            //pegando o nome do alvo
+            let getUserName = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
+            let userName = getUserName.textContent;
+    
+    
+            //pegando a mission do alvo
+            let getUserMission = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div");
+            let userMission = getUserMission.textContent;
+    
+            //Realizando alterações na mission para coleta de link
+            shortener(userMission, userName, userAvatar);
+        });
+        const mySelf = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div:nth-child(1) > div.d-flex.align-items-center.justify-content-between > div > div.d-inline.text-white.fw-bold.small.text-wrap.goldfish");
+        if(mySelf.textContent == nickname){
+            const editWidth = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div.d-flex.flex-grow-1.align-items-center.motto-content > div");
+            editWidth.style = 'width: 115px !important';
+        }
+        else{
+            const editWidth = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div.w-100.cursor-pointer.d-inline.text-white.text-wrap.text-break.goldfish");
+            editWidth.style = 'width: 95% !important';
+        }
+
+    }
+    else if(type == 2){//Profile
+        const description = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fst-italic.small.text-break");
+        const image = chrome.runtime.getURL("assets/profile.png");
+        const div = document.createElement("div");
+        div.classList.add("encurtador-button", "cursor-pointer");
+        div.style.backgroundImage = `url("${image}")`;
+        description.style.setProperty("display", "flex", "important");
+        description.style.setProperty("flex-wrap", "wrap");
+        description.appendChild(div);
+        div.addEventListener("click", function() {
+            //pegando o avatar do alvo
+            let getUserAvatar = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div.d-flex.flex-column.gap-2.align-items-center.justify-content-center.avatar-container > div");
+            let urlAvatar = getComputedStyle(getUserAvatar);
+            let userAvatar= urlAvatar.backgroundImage;
+    
+            //pegando o nome do alvo
+            let getUserName = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fw-bold");
+            let userName = getUserName.textContent;
+    
+    
+            //pegando a mission do alvo
+            let getUserMission = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fst-italic.small.text-break");
+            let userMission = getUserMission.textContent;
+    
+            shortener(userMission, userName, userAvatar);
+        });
+    }
+}
+
+
+// Função para verificar se um elemento com a classe "d-flex align-items-center py-1 px-2" está presente no DOM elemento de alvo selecionado
+function verificarElemento() {
+    //143px concertar para ter o maximo 143px na missao para que o botão não ficar cortado no meio
+    const alvo = document.querySelector(".d-flex.align-items-center.py-1.px-2");
+    const profile = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2");
+    let type = 0;
+    const buttonAlvo = document.querySelector("#root > div > div.animate__animated > div > div.w-100.h-100 > div.d-flex.flex-column.gap-2.align-items-end.nitro-infostand-container > div > div > div.d-flex.flex-column.gap-1.motto-container > div > div > div.encurtador-button.cursor-pointer");
+    const buttonProfile = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area > div:nth-child(1) > div.d-flex.flex-column.gap-1.g-col-7.user-container.pe-2 > div.d-flex.gap-2 > div:nth-child(2) > div:nth-child(1) > div.d-inline.text-black.fst-italic.small.text-break > div");
+
+    if (profile != null && buttonProfile == null){
+        type = 2;
+        profileCriado = true;
+        createProfileButton(type);
+    }
+    if(alvo != null && buttonAlvo == null){
+        type = 1;
+        alvoCriado = true;
+        createProfileButton(type);
+    }
+}
+
+
+
+// Função para criar o observador de mutação para verificar a criação/remoção do elemento
+function observarMutacoes() {
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                verificarElemento();
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 }

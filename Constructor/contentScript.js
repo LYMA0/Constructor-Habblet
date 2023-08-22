@@ -1,44 +1,3 @@
-//________________________1¶¶¶¶_____________________
-//_______________________1¶__¶¶¶¶___________________
-//_______________________¶1___1¶¶¶__________________
-//_______________________¶1____11¶¶_________________
-//_______________________¶1_____11¶1________________
-//___________1111111_____¶1______¶1¶________________
-//________1¶¶111111¶¶¶¶1_¶1______11¶¶_______________
-//________¶¶¶111______1¶¶¶1_______¶1¶_______________
-//_________1¶¶¶¶¶¶¶1_____¶¶_______¶1¶1______________
-//_____________1¶¶¶¶¶1___1¶_______11¶¶______________
-//________________¶¶1¶1__1¶_______11¶¶______________
-//_________________1¶_¶___¶________11¶______________
-//__________________¶¶1¶__¶________11¶______________
-//___________________¶_¶1_¶________11¶11111_________
-//___________________1¶_¶_¶________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶1_
-//____________________¶1¶¶¶1______¶1111111¶11¶___1¶_
-//___________________1111111¶¶__1¶111_11¶11¶_¶1___¶1
-//________________1¶1111111¶1¶¶1¶_¶1_11¶___1¶1¶___¶1
-//_____________11¶¶_1¶1_____1_¶¶_¶1_1¶¶_____¶_____¶_
-//___________1¶¶¶¶_¶¶¶1_______¶_¶1_1¶¶1_____¶____¶¶_
-//__________1¶__¶_¶1__¶¶_____111¶_¶11¶______¶___¶¶__
-//__________¶1___1¶___¶¶______1__11¶¶______1¶__¶¶___
-//__________¶____¶____¶1_____1¶__¶¶¶1______¶1_¶1____
-//_________1¶___¶¶___¶¶_____¶¶__¶1¶¶______1¶_¶1_____
-//_________¶¶__¶¶___¶¶_____¶¶___1¶¶_______¶¶1¶______
-//_________¶1_¶¶__1¶1____1¶1___¶1¶_________11_______
-//________¶¶_¶¶__¶¶____1¶¶___1¶1¶___________________
-//_______1¶¶¶1_¶¶1____¶¶1___11¶¶____________________
-//________11__¶¶____1¶¶_____¶¶¶_____________________
-//___________¶1____¶¶1____¶¶1¶______________________
-//__________¶1___1¶1____1¶1¶¶_______________________
-//_________¶1___¶¶____111¶¶1________________________
-//________¶¶__1¶1___1_1¶¶¶__________________________
-//________¶1_1¶1____¶¶¶¶1___________________________
-//_______¶¶__1¶__1¶¶¶¶1_____________________________
-//____1¶¶1____1¶¶¶¶¶1_______________________________
-//1¶¶¶¶1__1¶¶¶¶11___________________________________
-//¶¶¶¶_1¶¶1_________________________________________
-//1¶1¶¶¶____________________________________________
-
-
 // Removendo anúncios e player da rádio
 removeAd();
 
@@ -48,6 +7,7 @@ const nickname = getNickname;
 
 var getAvatar = localStorage.getItem("avatar");
 const avatar = getAvatar;
+
 
 // Criando novos botõtes no menu
 waitForElm("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(1) > div.d-flex.gap-2.align-items-center")
@@ -59,21 +19,21 @@ waitForElm("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-i
         createdDiv1.classList.add("cursor-pointer", "navigation-item", "icon", "icon-menu-custom", "icon-constructor");
         createdDiv1.innerHTML = `<img src="${imageSrc1}">`;
         div.appendChild(createdDiv1);
-
+        
         // Criar o segundo elemento div
         const imageSrc2 = chrome.runtime.getURL("assets/enable.png");
         const createdDiv2 = document.createElement("div");
         createdDiv2.classList.add("cursor-pointer", "navigation-item", "icon", "icon-menu-custom", "icon-enable");
         createdDiv2.innerHTML = `<img src="${imageSrc2}">`;
         div.appendChild(createdDiv2);
-
+        
         // Criar o terceiro elemento div
         const imageSrc3 = chrome.runtime.getURL("assets/handitem.png");
         const createdDiv3 = document.createElement("div");
         createdDiv3.classList.add("cursor-pointer", "navigation-item", "icon", "icon-menu-custom", "icon-handitem");
         createdDiv3.innerHTML = `<img src="${imageSrc3}">`;
         div.appendChild(createdDiv3);
-
+        
         //Criar o elemento historico div
         const divHistorico = document.querySelector("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(2) > div.d-flex.gap-2");
         const imageHistorico = chrome.runtime.getURL("assets/historico.png");
@@ -81,18 +41,24 @@ waitForElm("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-i
         createdHistorico.classList.add("cursor-pointer", "navigation-item", "icon", "icon-menu-custom", "icon-historico");
         createdHistorico.innerHTML = `<img src="${imageHistorico}">`;
         divHistorico.appendChild(createdHistorico);
+        
+        //Corrigindo alinhamentos de elementos
+        aling = document.querySelector("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(2) > div.d-flex.gap-2");
+        aling.classList.add("align-items-center");
     });
 
+// Variável de controle para rastrear o estado do elemento
+let alvoCriado = false;
+let profileCriado = false;
+let nicknameTarget = null;
 
-// Variável de controle
-let elementoFoiEncontrado = false;
-let conteudoAtual = '';
-let elementoFoiEncontradoProfile = false;
-let conteudoAtualProfile = '';
 
-// Chama a função de verificação periodicamente a cada 1 segundo (1000 milissegundos)
-setInterval(verificarElemento, 1000);
-setInterval(verificarElementoProfile, 1000);
+
+// Chamar a função para iniciar a observação de mutações
+observarMutacoes();
+
+
+
 
 //Faz com que só possa ser criado uma janela de cada botão
 let activeWindow = null;
@@ -118,7 +84,7 @@ waitForElm(".icon-menu-custom.icon-constructor")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-constructor");
         button.addEventListener("click", function() {
-            if (!windowOpened || !windowElement) {
+            if(!windowOpened || !windowElement) {
                 createConstructor();
             }
         });
@@ -128,7 +94,7 @@ waitForElm(".icon-menu-custom.icon-enable")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-enable");
         button.addEventListener("click", function() {
-            if (!windowOpenedEnable || !windowElementEnable) {
+            if(!windowOpenedEnable || !windowElementEnable) {
                 createEnable();
             }
         });
@@ -138,7 +104,7 @@ waitForElm(".icon-menu-custom.icon-handitem")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-handitem");
         button.addEventListener("click", function() {
-            if (!windowOpenedHanditem || !windowElementHanditem) {
+            if(!windowOpenedHanditem || !windowElementHanditem) {
                 createHanditem();
             }
         });
@@ -148,7 +114,7 @@ waitForElm(".icon-menu-custom.icon-historico")
     .then(element => {
         const button = document.querySelector(".icon-menu-custom.icon-historico");
         button.addEventListener("click", function() {
-            if (!windowOpenedHistoric || !windowElementHistoric) {
+            if(!windowOpenedHistoric || !windowElementHistoric) {
                 createHistoric();
             }
         });
