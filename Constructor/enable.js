@@ -847,7 +847,7 @@ const enables = [
     },
     {
         status: 'Free',
-        nome: 'Amoeba',
+        nome: 'Cabeça Slime Verde',
         id: 169,
     },
     {
@@ -1884,6 +1884,256 @@ const enables = [
         status: 'Free',
         nome: 'Gato',
         id: 661,
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 662
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 663
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 664
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 665
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 666
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 667
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida',
+        id: 668
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 669
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 670
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 671
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 672
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 673
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 674
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Freeze',
+        id: 675
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 676
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 677
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 678
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 679
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 680
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 681
+    },
+    {
+        status: 'Free',
+        nome: 'Barra de vida + Effect',
+        id: 682
+    },
+    {
+        status: 'Free',
+        nome: 'Pipa Azul',
+        id: 683
+    },
+    {
+        status: 'Free',
+        nome: 'Pipa laranja',
+        id: 684
+    },
+    {
+        status: 'Free',
+        nome: 'Pipa Vermelha',
+        id: 685
+    },
+    {
+        status: 'Free',
+        nome: 'Pipa Rosa',
+        id: 686
+    },
+    {
+        status: 'Free',
+        nome: 'Pipa Verde',
+        id: 687
+    },
+    {
+        status: 'Free',
+        nome: 'Cabeça Slime Laranja',
+        id: 688
+    },
+    {
+        status: 'Free',
+        nome: 'Caixa de presente',
+        id: 689
+    },
+    {
+        status: 'Free',
+        nome: 'Coração partido',
+        id: 690
+    },
+    {
+        status: 'Free',
+        nome: 'Casal',
+        id: 691
+    },
+    {
+        status: 'Free',
+        nome: 'Friendzone',
+        id: 692
+    },
+    {
+        status: 'Free',
+        nome: 'Casal LGBT',
+        id: 693
+    },
+    {
+        status: 'Free',
+        nome: 'Fogo branco',
+        id: 694
+    },
+    {
+        status: 'Free',
+        nome: 'Tesoura',
+        id: 695
+    },
+    {
+        status: 'Free',
+        nome: 'Papel',
+        id: 696
+    },
+    {
+        status: 'Free',
+        nome: 'Pedra',
+        id: 697
+    },
+    {
+        status: 'Free',
+        nome: 'Spectro',
+        id: 698
+    },
+    {
+        status: 'Free',
+        nome: 'Cortador',
+        id: 699
+    },
+    {
+        status: 'Free',
+        nome: 'Revestido de bosta',
+        id: 700
+    },
+    {
+        status: 'Free',
+        nome: 'Auréola LGBT',
+        id: 701
+    },
+    {
+        status: 'Free',
+        nome: 'Capacete de corrida Vermelho',
+        id: 702
+    },
+    {
+        status: 'Free',
+        nome: 'Capacete de corrida Azul',
+        id: 703
+    },
+    {
+        status: 'Free',
+        nome: 'Capacete de corrida Amarelo',
+        id: 704
+    },
+    {
+        status: 'Free',
+        nome: 'Capacete de corrida Verde',
+        id: 705
+    },
+    {
+        status: 'Free',
+        nome: 'Kart',
+        id: 706
+    },
+    {
+        status: 'Free',
+        nome: 'Filtro',
+        id: 707
+    },
+    {
+        status: 'Free',
+        nome: 'Efeito Holo',
+        id: 708
+    },
+    {
+        status: 'Free',
+        nome: 'Dragão vermelho',
+        id: 709
+    },
+    {
+        status: 'Free',
+        nome: 'Dragão azul',
+        id: 710
+    },
+    {
+        status: 'Free',
+        nome: 'Dragão verde',
+        id: 711
     },
     {
         status: 'VIP',

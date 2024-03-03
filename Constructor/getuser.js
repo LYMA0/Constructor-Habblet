@@ -9,4 +9,3 @@ const conteudo = match ? match[1] : null;
 
 localStorage.setItem("nickname", elementoUser);
 localStorage.setItem("avatar", conteudo);
-

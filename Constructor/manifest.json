@@ -3,7 +3,7 @@
    "content_scripts": [
       {
          "css": [ "styles.css" ],
-         "js": ["getuser.js", "enable.js", "handitem.js", "html.js", "functions.js", "contentScript.js"],
+         "js": ["getuser.js", "enable.js", "handitem.js", "html.js", "functions.js", "contentScript.js", "janela.js"],
          "matches": ["*://*.habblet.city/*"],
          "run_at": "document_end"
       }
@@ -17,7 +17,7 @@
    },
    "manifest_version": 3,
    "name": "Constructor - Habblet",
-   "version": "0.0.7",
+   "version": "0.1.5",
    "web_accessible_resources": [
       {
          "matches": [ "*://*.habblet.city/*" ],
@@ -30,6 +30,6 @@
    ],
    "permissions": [
       "*://*.habblet.city/hotelv2/*",
-      "*://*.habblet.city/news/*"
+      "*://*.habblet.city/*"
    ]
 }

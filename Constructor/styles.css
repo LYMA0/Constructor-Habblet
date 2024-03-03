@@ -11,7 +11,7 @@
 .icon-icon-handitem{
 }
 .custon-constructor{
-    height: 286px;
+    height: 315px;
 }
 .custon-enable{
     width: 500px;
@@ -108,4 +108,40 @@
 }
 .link-user-list:hover{
     color: rgb(106, 106, 244);
+}
+.profile-custom{
+    width: 40px !important;
+    height: 40px !important;
+}
+.profile-bar{
+}
+ul {
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.li-custom-fi{
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.li-custom-fi:last-child{
+    margin-bottom: none;
+}
+.li-custom{
+    width: 22px !important;
+}
+p{
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
+}
+.btn-hyperlink{
+    background-color: #1f1f22 !important;
+    border-color: #202022 !important;
+    box-shadow: inset 0 2px 0 hsla(0,0%,100%,.15), inset 0 -2px rgba(0,0,0,.1), 0 1px rgba(0,0,0,.1) !important;
+}
+.btn-hyperlink:hover{
+    background-color: rgb(20, 20, 22) !important;
+    border-color: #1f1f22 !important;
+    box-shadow: inset 0 2px 0 hsla(0,0%,100%,.15), inset 0 -2px rgba(0,0,0,.1), 0 1px rgba(0,0,0,.1) !important;
 }
