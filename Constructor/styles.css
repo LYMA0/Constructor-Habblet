@@ -4,8 +4,6 @@
     background: transparent;
     display: flex !important;
 }
-.icon-constructor{
-}
 .icon-enable{
 }
 .icon-icon-handitem{
@@ -34,7 +32,16 @@
     align-content: center;
     margin: 5px;
     width: 100px;
+    background-color: #cdd3d9;
+    border: 1px solid #283f5d!important;
+    border-color: #b6bec5!important;
+    border-width: 2px!important;
+    border-radius: .25rem!important;
     flex-direction: column-reverse !important;
+}
+.custom-previw-2-enable:hover{
+    border-color: #fff!important;
+    background-color:#ececec!important;
 }
 .custom-previw-2-handitem{
     display: flex;
@@ -43,7 +50,16 @@
     align-content: center;
     margin: 5px;
     width: 100px;
+    background-color: #cdd3d9;
+    border: 1px solid #283f5d!important;
+    border-color: #b6bec5!important;
+    border-width: 2px!important;
+    border-radius: .25rem!important;
     flex-direction: column-reverse !important;
+}
+.custom-previw-2-handitem:hover{
+    border-color: #fff!important;
+    background-color:#ececec!important;
 }
 .avatar-user-previw {
     width: 70px;

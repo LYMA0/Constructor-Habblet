@@ -3,12 +3,12 @@
    "content_scripts": [
       {
          "css": [ "styles.css" ],
-         "js": ["getuser.js", "enable.js", "handitem.js", "html.js", "functions.js", "contentScript.js", "janela.js"],
+         "js": ["html.js","getuser.js", "enable.js", "handitem.js", "functions.js", "contentScript.js", "janela.js"],
          "matches": ["*://*.habblet.city/*"],
          "run_at": "document_end"
       }
    ],
-   "description": "A extensão Constructor adiciona novos recursos que aceleram a construção/decoração de quarto, uso de enables e handitems.",
+   "description": "A extensão Pixely adiciona novos recursos que aceleram a utilização de comandos no Habblet.city",
    "icons": {
       "128": "assets/RM0-128x.png",
       "16": "assets/RM0-128x.png",
@@ -16,8 +16,8 @@
       "48": "assets/RM0-128x.png"
    },
    "manifest_version": 3,
-   "name": "Constructor - Habblet",
-   "version": "0.1.5",
+   "name": "Pixely - Habblet",
+   "version": "0.1.8",
    "web_accessible_resources": [
       {
          "matches": [ "*://*.habblet.city/*" ],

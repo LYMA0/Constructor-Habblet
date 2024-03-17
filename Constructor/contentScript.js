@@ -1,13 +1,13 @@
-
 // Variaveis de controle
-let statusConstructor;
 let statusEnable;
 let statusHanditem;
 let statusFlood;
 let statusHistoric;
+let statusContainer;
 
 let Clickthrough = false;
 let defaultKeyBrowser = false;
+var cooldownAtivo = false;
 
 let scrollPositionEnable = 0;
 let scrollPositionHanditem = 0;
@@ -40,7 +40,6 @@ document.querySelector("#draggable-windows-container > div > div > div.d-flex.ov
 
 // Criando novos botõtes no menu esquerdo
 esperarElemento("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(1) > div.d-flex.gap-2.align-items-center").then(element => {
-    criarBotao("assets/constructor.png", "icon-constructor", element);
     criarBotao("assets/enable.png", "icon-enable", element);
     criarBotao("assets/handitem.png", "icon-handitem", element);
     criarBotao("assets/flood.png", "icon-flood", element);
@@ -56,15 +55,6 @@ esperarElemento("#root > div > div.animate__animated > div > div.d-flex.gap-2.al
 });
 
 observarMutacoes(); // Chamar a função para iniciar a observação de mutações
-
-esperarElemento(".icon-menu-custom.icon-constructor").then(element => {
-    element.addEventListener("click", function() {
-        console.log(statusConstructor);
-        if(statusConstructor == true) {
-            criarJanela("Constructor");
-        }
-    });
-});
 
 esperarElemento(".icon-menu-custom.icon-enable").then(element => {
     element.addEventListener("click", function() {
@@ -99,22 +89,36 @@ esperarElemento(".icon-menu-custom.icon-historico").then(element => {
 });
 
 esperarElemento(".icon-menu-custom.icon-clickthrough").then(element => {
+
     element.addEventListener("click", function() {
-        let img = document.querySelector("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(2) > div.d-flex.gap-2 > div.cursor-pointer.navigation-item.icon.icon-menu-custom.icon-clickthrough > img");
-        let imgClickthroughON = chrome.runtime.getURL("assets/clickthroughON.png");
-        let imgClickthroughOFF = chrome.runtime.getURL("assets/clickthroughOFF.png");
-        if(Clickthrough === false){
-            executarComando("ct","");
-            img.src = imgClickthroughON;
-            Clickthrough = true;
+        // Verifica se o cooldown está ativo
+        const chat = document.querySelector("#toolbar-chat-input-container > div > div.chatinput-container > input");
+        if(!chat){
+            return;
         }
-        else{
-            executarComando("ct","");
-            img.src = imgClickthroughOFF;
-            Clickthrough = false;
+        if (!cooldownAtivo) {
+            let img = document.querySelector("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(2) > div.d-flex.gap-2 > div.cursor-pointer.navigation-item.icon.icon-menu-custom.icon-clickthrough > img");
+            let imgClickthroughON = chrome.runtime.getURL("assets/clickthroughON.png");
+            let imgClickthroughOFF = chrome.runtime.getURL("assets/clickthroughOFF.png");
+    
+            if (Clickthrough === false) {
+                executarComando("ct", "");
+                img.src = imgClickthroughON;
+                Clickthrough = true;
+            } else {
+                executarComando("ct", "");
+                img.src = imgClickthroughOFF;
+                Clickthrough = false;
+            }
+    
+            // Ativa o cooldown por 1 segundo (ajuste conforme necessário)
+            cooldownAtivo = true;
+            setTimeout(function() {
+                cooldownAtivo = false;
+            }, 1000); // Tempo de cooldown em milissegundos
         }
     });
-});
 
+});
 
 teclaFlood(); // Chama a função para flood do F1 ao F12

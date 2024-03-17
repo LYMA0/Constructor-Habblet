@@ -1,69 +1,3 @@
-const htmlConstructor = `
-<div class="d-flex overflow-hidden position-relative flex-column nitro-card theme-primary-slim custon-constructor">
-    <div class="d-flex position-relative flex-column gap-2 align-items-center justify-content-center drag-handler container-fluid nitro-card-header ">
-      <div class="d-flex w-100 align-items-center justify-content-center">
-        <span class="nitro-card-header-text">Constructor</span>
-        <div class="position-absolute end-0 nitro-card-header-close"></div>
-      </div>
-    </div>
-    <div class="d-flex overflow-auto flex-column gap-2 justify-content-between container-fluid content-area">
-      <div class="d-inline text-black">
-        Definir altura:
-      </div>
-      <div class="d-flex gap-2">
-        <input id="up" class="show-number-arrows" type="number" min="0" max="40" value="0" style="width: 50px;">
-        <div id="enviar-up" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm custon-constructor-button">
-          Aplicar
-        </div>
-        <div id="opcao-up" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Desativar
-        </div>
-      </div>
-      <div class="d-inline text-black">
-        Definir estado:
-      </div>
-      <div class="d-flex gap-2">
-        <input id="state" class="show-number-arrows" type="number" min="0" max="40" value="0" style="width: 50px;">
-        <div id="enviar-state" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm custon-constructor-button">
-          Aplicar
-        </div>
-        <div id="opcao-state" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Desativar
-        </div>
-      </div>
-      <div class="d-inline text-black">
-        Definir rotação:
-      </div>
-      <div class="d-flex gap-2">
-        <input id="spin" class="show-number-arrows" type="number" min="0" max="40" value="0" style="width: 50px;">
-        <div id="enviar-spin" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm custon-constructor-button">
-          Aplicar
-        </div>
-        <div id="opcao-spin" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Desativar
-        </div>
-      </div>
-      <div class="d-inline text-black">
-        Comandos tile
-      </div>
-      <div class="d-flex gap-2">
-        <div id="enviar-copy" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Copiar
-        </div>
-        <div id="enviar-place" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Colar
-        </div>
-        <div id="enviar-pick" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Pegar
-        </div>
-        <div id="enviar-move" class="d-flex align-items-center justify-content-center btn btn-primary btn-sm">
-          Mover
-        </div>
-      </div>
-      <span>Lembre-se de desativar os comandos tile!</span>
-    </div>
-</div>
-    `;
 const htmlEnable = `
 <div class="d-flex overflow-hidden position-relative flex-column nitro-card theme-primary-slim custon-enable" style="width: 500px; height: 500px;">
     <div class="d-flex position-relative flex-column gap-2 align-items-center justify-content-center drag-handler container-fluid nitro-card-header">
@@ -160,6 +94,17 @@ const htmlFlood = `
           </li>
         </ul>
       </form>
+    </div>
+</div>
+`
+const htmlContainer = 
+`
+<div class="widgetcontainer widget d-flex flex-row overflow-hidden">
+    <div class="widgetcontainer-image flex-shrink-0"">
+    </div>
+    <div class="d-flex flex-column">
+          <h5 class="my-1 fw-bold">ATUALIZAÇÃO Constructor → Pixely</h5>
+          <span>Gostaríamos de informar que a partir desta atualização, nossa extensão não será mais conhecida como Constructor, mas sim como Pixely.<br><br>Esta mudança é resultado da última atualização realizada no Habblet, que incorporou funcionalidades semelhantes e com mais recursos. Com isso, decidimos abandonar o nome Constructor, que originalmente refletia a facilidade de construir quartos usando os comandos disponíveis na época.<br><br>Com as melhorias recentes, esses comandos tornaram-se obsoletos.</span>
     </div>
 </div>
 `

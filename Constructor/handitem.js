@@ -113,6 +113,7 @@ const handitems = [
     {status: "Free", nome: "Linguiças", id: 136}, 
     {status: "Free", nome: "Picolé", id: 137}, 
     {status: "Free", nome: "Saco de Salgadinhos Aberto", id: 138}, 
+    {status: "Free", nome: "Fanta Laranja", id: 147}, 
     {status: "Free", nome: "Rosa", id: 1000}, 
     {status: "Free", nome: "Rosa Negra", id: 1001}, 
     {status: "Free", nome: "Girassol", id: 1002}, 

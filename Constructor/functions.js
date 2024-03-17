@@ -16,11 +16,10 @@ function observarMutacoes() {
 
 function verificarElemento() {
     // Variaveis de controle (Verifica se a janela está aberta ou fechada)
-    let statusJanelaConstructor = document.querySelector("#draggable-windows-container > div > div > div.d-flex.position-relative.flex-column.gap-2.align-items-center.justify-content-center.drag-handler.container-fluid.nitro-card-header > div > span");
     let statusJanelaEnable = document.querySelector("#draggable-windows-container > div > div > div.d-flex.position-relative.flex-column.gap-2.align-items-center.justify-content-center.drag-handler.container-fluid.nitro-card-header > div > span");
     let statusJanelaHanditem = document.querySelector("#draggable-windows-container > div > div > div.d-flex.position-relative.flex-column.gap-2.align-items-center.justify-content-center.drag-handler.container-fluid.nitro-card-header > div > span");
     let statusJanelaFlood = document.querySelector("#draggable-windows-container > div > div > div.d-flex.position-relative.flex-column.gap-2.align-items-center.justify-content-center.drag-handler.container-fluid.nitro-card-header > div > span");
-
+    
     // Variaveis de perfil
     const alvo = document.querySelector(".d-flex.align-items-center.py-1.px-2");
     const profile = document.querySelector("#draggable-windows-container > div > div > div.d-flex.overflow-hidden.flex-column.gap-2.container-fluid.content-area.pt-0.pl-0.pr-0 > div.d-flex.align-items-center.profile-bar > div.text-row.w-50.text-truncate");
@@ -31,6 +30,25 @@ function verificarElemento() {
     // Variaveis de condições especificas
     const chat = document.querySelector("#toolbar-chat-input-container > div > div.chatinput-container > input");
 
+    const container = document.querySelector("#root > div > div.animate__animated > div > div:nth-child(1) > div > div.container.h-100.py-3.overflow-hidden.landing-widgets > div > div.col-9.h-100.d-flex.flex-column > div.col-12.row.mx-0");
+
+    if(container && !statusContainer){
+        statusContainer = true;
+
+        const html = document.createElement('div');
+        html.classList.add('widget-slot', 'slot-4', 'col-7');
+        html.style.marginTop = '10px';
+        html.innerHTML = htmlContainer;
+        container.appendChild(html);
+
+        const img = document.querySelector("#root > div > div.animate__animated > div > div:nth-child(1) > div > div.container.h-100.py-3.overflow-hidden.landing-widgets > div > div.col-9.h-100.d-flex.flex-column > div.col-12.row.mx-0 > div:nth-child(5) > div > div.widgetcontainer-image.flex-shrink-0");
+
+        img.style.background = `url(${chrome.runtime.getURL("assets/img_update.png")})`;
+        img.style.backgroundRepeat = 'no-repeat';
+    }
+    if(!container && statusContainer === true){
+        statusContainer = false;
+    }
 
     if(profile != null && buttonProfile == null){
         type = 2;
@@ -43,9 +61,6 @@ function verificarElemento() {
         createProfileButton(type);
     }
 
-    if(!statusJanelaConstructor){
-        statusConstructor = true;
-    }
     if(!statusJanelaEnable){
         statusEnable = true;
     }
@@ -58,8 +73,9 @@ function verificarElemento() {
     if(!statusHistoric){
         statusHistoric = true;
     }
+    
 
-    if(chat === null){
+    if(!chat){
         chatCriado = false;
         let imageClickthrough = chrome.runtime.getURL("assets/clickthroughOFF.png");
         let img = document.querySelector("#root > div > div.animate__animated > div > div.d-flex.gap-2.align-items-center.justify-content-between.nitro-toolbar.py-1.px-3 > div:nth-child(2) > div.d-flex.gap-2 > div.cursor-pointer.navigation-item.icon.icon-menu-custom.icon-clickthrough > img");
@@ -70,25 +86,32 @@ function verificarElemento() {
 
 //removeAnuncio
 function removerAnuncio() {
-    setTimeout(() => {
-        console.log("this is the first message");
-    }, 5000);
+    //Player da rádio
     const area_player = document.querySelector("#area_player");
-    area_player.remove();
-    const ad1 = document.querySelector("#ad1");
-    const ad2 = document.querySelector("#ad2");
-    if (ad1 == null) {
-        return;
+    if(area_player){
+        area_player.remove();
     }
-    ad1.remove();
-    ad2.remove();
 
-    const adgoogle = document.querySelectorAll(".adsbygoogle.adsbygoogle-noablate");
+    //Placa de ADS HABBO
+    const ad1 = document.querySelector("#ads1");
+    const ad2 = document.querySelector("#ads2");
+    if(ad1 && ad2){
+        ad1.remove();
+        ad2.remove();
+    }    
 
-    for (let i = 0; i < adgoogle.length; i++) {
-        const adevent = adgoogle[i];
-        adevent.remove();
-    }
+    setTimeout(function() {
+        //Anuncios com tag INS
+        var elementosIns = document.querySelectorAll('ins');
+        elementosIns.forEach(function(elemento) {
+            elemento.remove(); // Remove o elemento <ins> atual
+        });
+
+        const body = document.body;
+        if(body.style.paddingBottom !== "0px"){
+            body.style.padding = "0px";
+        }
+    }, 2000);
 }
 
 // Desenvolvendo
@@ -211,12 +234,9 @@ function criarJanela(janela) {
         const novaJanela = document.createElement("div");
         novaJanela.classList.add("position-absolute", "draggable-window");
         const tam = 409
-        novaJanela.setAttribute("style", `z-index: ${tam}; top: calc(50vh - 110px); left: calc(50vw - 137.5px); transform: translate(0px, 0px); visibility: visible;`);
+        novaJanela.setAttribute("style", `z-index: ${tam}; top: calc(30vh - 110px); left: calc(50vw - 137.5px); transform: translate(0px, 0px); visibility: visible;`);
 
-        if (janela == "Constructor") {
-            criandoElementoConstructor(novaJanela, divAlvo);
-        }
-        else if (janela == "Enable") {
+        if (janela == "Enable") {
             criandoElementoEnable(novaJanela, divAlvo);
         }
         else if (janela == "Handitem"){
@@ -275,6 +295,10 @@ function janelaArrastavel(element) {
 
 // Executa o comando via chat
 function executarComando(string, value) {
+    const chat = document.querySelector("#toolbar-chat-input-container > div > div.chatinput-container > input");
+    if(!chat){
+        return;
+    }
     const inputTarget = document.querySelector("#toolbar-chat-input-container > div > div.chatinput-container > input");
     inputTarget.value = `:${string} ${value}`;
     console.log(inputTarget.value);
